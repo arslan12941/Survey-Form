@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Satisfaction Survey</title>
+    <link rel="stylesheet" href="survey.css">
+</head>
+<body>
+    <div class="survey-form">
+        <h2>Customer Satisfaction Survey</h2>
+        <form id="surveyForm" action="submit.php" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required>
+                <div class="error" id="nameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error" id="emailError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age (1-60)</label>
+                <input type="number" id="age" name="age" min="1" max="60">
+                <div class="error" id="ageError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="satisfaction">Satisfaction Level *</label>
+                <select id="satisfaction" name="satisfaction" required>
+                    <option value="">--Select--</option>
+                    <option value="1">1 - Very Dissatisfied</option>
+                    <option value="2">2 - Dissatisfied</option>
+                    <option value="3">3 - Neutral</option>
+                    <option value="4">4 - Satisfied</option>
+                    <option value="5">5 - Very Satisfied</option>
+                </select>
+                <div class="error" id="satisfactionError"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Would you recommend us? *</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="recommend" value="Yes"> Yes</label>
+                    <label><input type="radio" name="recommend" value="No"> No</label>
+                </div>
+                <div class="error" id="recommendError"></div>
+            </div>
+
+            <div class="form-group">
+                <label>What should we improve? (Select at least one) *</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="improvements[]" value="Service"> Service</label>
+                    <label><input type="checkbox" name="improvements[]" value="Pricing"> Pricing</label>
+                    <label><input type="checkbox" name="improvements[]" value="Support"> Support</label>
+                    <label><input type="checkbox" name="improvements[]" value="Website"> Website</label>
+                </div>
+                <div class="error" id="improvementsError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Additional Comments (max 500 characters)</label>
+                <textarea id="comments" name="comments" rows="4" maxlength="500"></textarea>
+                <div class="error" id="commentsError"></div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+        <div id="successMessage" class="hidden">Thank you for your feedback!</div>
+    </div>
+
+    <script src="survey.js"></script>
+</body>
+</html>
